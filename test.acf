@@ -1,0 +1,470 @@
+"appinfo"
+{
+	"appid"		"333640"
+	"common"
+	{
+		"name"		"Caves of Qud"
+		"type"		"Game"
+		"oslist"		"windows,macos,linux"
+		"logo"		"cb1f99e528ea29401cf47a9ffaeed9ed707611f6"
+		"logo_small"		"cb1f99e528ea29401cf47a9ffaeed9ed707611f6_thumb"
+		"icon"		"d301aa7d579383e6eeedf4a9cd26d703e6e5d5e0"
+		"clienttga"		"21ed646fdce682f266caf287dd5a2ef5dde7bf7b"
+		"clienticon"		"0ea0e673fabe11056390cffaf70b2f762735b271"
+		"linuxclienticon"		"e1d6706296852f6a435dac86afe2492d1ede0eff"
+		"releasestate"		"released"
+		"clienticns"		"371982ca470b0f1fec614d6bdca062a18e8e7c5a"
+		"eulas"
+		{
+			"0"
+			{
+				"id"		"333640_eula_0"
+				"name"		"Caves of Qud EULA"
+				"url"		"http://store.steampowered.com//eula/333640_eula_0"
+			}
+		}
+		"osarch"		""
+		"osextended"		"macos64"
+		"metacritic_name"		"Caves of Qud"
+		"small_capsule"
+		{
+			"english"		"capsule_231x87.jpg"
+		}
+		"header_image"
+		{
+			"english"		"header.jpg"
+		}
+		"library_assets"
+		{
+			"library_capsule"		"en"
+			"library_hero"		"en"
+			"library_logo"		"en"
+			"logo_position"
+			{
+				"pinned_position"		"CenterCenter"
+				"width_pct"		"33.185279839015905"
+				"height_pct"		"59.30688177709014"
+			}
+		}
+		"store_asset_mtime"		"1572490337"
+		"associations"
+		{
+			"0"
+			{
+				"type"		"developer"
+				"name"		"Freehold Games"
+			}
+			"1"
+			{
+				"type"		"publisher"
+				"name"		"Freehold Games"
+			}
+		}
+		"primary_genre"		"3"
+		"genres"
+		{
+			"0"		"25"
+			"1"		"23"
+			"2"		"3"
+			"3"		"2"
+			"4"		"70"
+		}
+		"category"
+		{
+			"category_2"		"1"
+			"category_30"		"1"
+			"category_25"		"1"
+			"category_17"		"1"
+			"category_22"		"1"
+		}
+		"supported_languages"
+		{
+			"english"
+			{
+				"supported"		"true"
+			}
+		}
+		"steam_release_date"		"1436966718"
+		"community_visible_stats"		"1"
+		"workshop_visible"		"1"
+		"community_hub_visible"		"1"
+		"gameid"		"333640"
+		"store_tags"
+		{
+			"0"		"1716"
+			"1"		"122"
+			"2"		"3835"
+			"3"		"1759"
+			"4"		"492"
+			"5"		"493"
+			"6"		"3942"
+			"7"		"5125"
+			"8"		"1695"
+			"9"		"21"
+			"10"		"1677"
+			"11"		"9"
+			"12"		"4026"
+			"13"		"3964"
+			"14"		"1742"
+			"15"		"3834"
+			"16"		"4711"
+			"17"		"4004"
+			"18"		"14139"
+			"19"		"1756"
+		}
+	}
+	"extended"
+	{
+		"developer"		"Freehold Games"
+		"publisher"		"Freehold Games"
+		"homepage"		"http://www.cavesofqud.com"
+	}
+	"config"
+	{
+		"contenttype"		"3"
+		"installdir"		"Caves of Qud"
+		"launch"
+		{
+			"0"
+			{
+				"executable"		"CoQ.exe"
+				"description"		"Launch"
+				"config"
+				{
+					"oslist"		"windows"
+				}
+			}
+			"1"
+			{
+				"executable"		"CoQ.app"
+				"description"		"Launch"
+				"config"
+				{
+					"oslist"		"macos"
+				}
+			}
+			"2"
+			{
+				"executable"		"CoQ.x86_64"
+				"description"		"Launch 64-bit"
+				"config"
+				{
+					"oslist"		"linux"
+					"osarch"		"64"
+				}
+			}
+			"3"
+			{
+				"executable"		"CoQ.x86"
+				"description"		"Launch"
+				"config"
+				{
+					"oslist"		"linux"
+					"osarch"		"32"
+				}
+			}
+		}
+	}
+	"depots"
+	{
+		"333641"
+		{
+			"name"		"Caves of Qud - Windows"
+			"config"
+			{
+				"oslist"		"windows"
+			}
+			"manifests"
+			{
+				"public"		"8980420997573318026"
+				"2.0.182.x"		"6100881158586050760"
+				"2.0.183.x"		"1527721288690312085"
+				"2.0.184.x"		"5653478221414131149"
+				"2.0.185.x"		"4224635330016806254"
+				"2.0.186.x"		"3439761188307457824"
+				"2.0.187.x"		"5705817962036204792"
+				"2.0.188.x"		"8073695013142289594"
+				"2.0.189.x"		"732535764412081225"
+				"2.0.190.x"		"7380537857965090751"
+				"2.0.191.x"		"5865572221944455676"
+				"2.0.192.x"		"8802007314870842270"
+				"2.0.193.x"		"6681796060965037891"
+				"2.0.194.x"		"7742994658107237235"
+				"2.0.195.1"		"5929736672421121383"
+				"2.0.195.x"		"7091349337595287102"
+				"2.0.196.x"		"5389446901733222084"
+				"2.0.197.x"		"5960612264558605103"
+				"2.0.198.x"		"3073805636584569114"
+				"legacy-opengl2"		"8091165627025421621"
+				"previousstable"		"3073805636584569114"
+			}
+			"maxsize"		"356781258"
+			"encryptedmanifests"
+			{
+				"alpha"
+				{
+					"encrypted_gid_2"		"CCBF8F37EF738F8657D18859AFB74B92"
+					"encrypted_size_2"		"4625CBB39635015420E5716AE84E5B71"
+				}
+				"internal"
+				{
+					"encrypted_gid_2"		"AFBE3D083AE96686CCF437D8C8B3F324"
+					"encrypted_size_2"		"7ABD5F26E5D4CD450763D292CE08C927"
+				}
+			}
+		}
+		"333642"
+		{
+			"name"		"Caves of Qud - OSX"
+			"config"
+			{
+				"oslist"		"macos"
+			}
+			"manifests"
+			{
+				"public"		"4171699331219109123"
+				"2.0.182.x"		"4035584527560270811"
+				"2.0.183.x"		"1470177168846025314"
+				"2.0.184.x"		"5470854594646865586"
+				"2.0.185.x"		"585074778707681295"
+				"2.0.186.x"		"4087550434877803722"
+				"2.0.187.x"		"5945885744390440286"
+				"2.0.188.x"		"6780339454468976332"
+				"2.0.189.x"		"2998929174249801907"
+				"2.0.190.x"		"4037845206949066749"
+				"2.0.191.x"		"7553962583026377182"
+				"2.0.192.x"		"6743385899333315492"
+				"2.0.193.x"		"7513597111171414025"
+				"2.0.194.x"		"1142297330518164097"
+				"2.0.195.1"		"7190133643031138378"
+				"2.0.195.x"		"4268757922237109949"
+				"2.0.196.x"		"7451654644474045856"
+				"2.0.197.x"		"4763657697296401652"
+				"2.0.198.x"		"3648871071387507454"
+				"legacy-opengl2"		"1165776431184298269"
+				"previousstable"		"3648871071387507454"
+			}
+			"maxsize"		"417084519"
+			"encryptedmanifests"
+			{
+				"alpha"
+				{
+					"encrypted_gid_2"		"BF9883B28979C2F349AEB17D5AE2F93D"
+					"encrypted_size_2"		"A4CB9D0411A8BFCA29AEB938F91D810F"
+				}
+				"internal"
+				{
+					"encrypted_gid_2"		"93A94B22237E0AD16EB572574216F2CD"
+					"encrypted_size_2"		"6579422C37524285A229CFD075DF49A8"
+				}
+			}
+		}
+		"333643"
+		{
+			"name"		"Caves of Qud - Linux"
+			"config"
+			{
+				"oslist"		"linux"
+			}
+			"manifests"
+			{
+				"public"		"3940155630950510195"
+				"2.0.182.x"		"4171919841558308085"
+				"2.0.183.x"		"8382203671502027966"
+				"2.0.184.x"		"7291066627402576815"
+				"2.0.185.x"		"5802842319622603905"
+				"2.0.186.x"		"5270023998462671530"
+				"2.0.187.x"		"8201849712262940952"
+				"2.0.188.x"		"452561213124451623"
+				"2.0.189.x"		"8819850166427113610"
+				"2.0.190.x"		"1316342780745429473"
+				"2.0.191.x"		"2053488129552019867"
+				"2.0.192.x"		"7255903763615729537"
+				"2.0.193.x"		"4933648582955008754"
+				"2.0.194.x"		"5727758932497587190"
+				"2.0.195.1"		"7994020144707418191"
+				"2.0.195.x"		"831868233650009740"
+				"2.0.196.x"		"3238996860769799527"
+				"2.0.197.x"		"8778722460043886273"
+				"2.0.198.x"		"3919155159031470225"
+				"legacy-opengl2"		"8158650665409000759"
+				"previousstable"		"3919155159031470225"
+			}
+			"maxsize"		"397858210"
+			"encryptedmanifests"
+			{
+				"alpha"
+				{
+					"encrypted_gid_2"		"1B7B3F765A909ECA0D6DD6926E311353"
+					"encrypted_size_2"		"DD225B4377F9A1F6308A6811EAC49DA4"
+				}
+				"internal"
+				{
+					"encrypted_gid_2"		"CE6BECD20F47E61452E6DD3417B73F05"
+					"encrypted_size_2"		"441D1CCC197DFD3E4F165703ED7D841A"
+				}
+			}
+		}
+		"workshopdepot"		"333640"
+		"branches"
+		{
+			"public"
+			{
+				"buildid"		"4396082"
+				"timeupdated"		"1573883339"
+			}
+			"2.0.182.x"
+			{
+				"buildid"		"3946387"
+				"description"		""
+				"timeupdated"		"1561308630"
+			}
+			"2.0.183.x"
+			{
+				"buildid"		"3980214"
+				"description"		""
+				"timeupdated"		"1562202341"
+			}
+			"2.0.184.x"
+			{
+				"buildid"		"4018233"
+				"description"		""
+				"timeupdated"		"1563339207"
+			}
+			"2.0.185.x"
+			{
+				"buildid"		"4029372"
+				"description"		""
+				"timeupdated"		"1563614527"
+			}
+			"2.0.186.x"
+			{
+				"buildid"		"4049896"
+				"description"		""
+				"timeupdated"		"1564207713"
+			}
+			"2.0.187.x"
+			{
+				"buildid"		"4074145"
+				"description"		""
+				"timeupdated"		"1564947300"
+			}
+			"2.0.188.x"
+			{
+				"buildid"		"4093128"
+				"description"		""
+				"timeupdated"		"1565414548"
+			}
+			"2.0.189.x"
+			{
+				"buildid"		"4120070"
+				"description"		""
+				"timeupdated"		"1566247422"
+			}
+			"2.0.190.x"
+			{
+				"buildid"		"4144378"
+				"description"		""
+				"timeupdated"		"1566949628"
+			}
+			"2.0.191.x"
+			{
+				"buildid"		"4175149"
+				"description"		""
+				"timeupdated"		"1567824796"
+			}
+			"2.0.192.x"
+			{
+				"buildid"		"4197451"
+				"description"		""
+				"timeupdated"		"1568524682"
+			}
+			"2.0.193.x"
+			{
+				"buildid"		"4216886"
+				"description"		""
+				"timeupdated"		"1569043080"
+			}
+			"2.0.194.x"
+			{
+				"buildid"		"4272726"
+				"description"		""
+				"timeupdated"		"1570659752"
+			}
+			"2.0.195.1"
+			{
+				"buildid"		"4281183"
+				"description"		""
+				"timeupdated"		"1571110124"
+			}
+			"2.0.195.x"
+			{
+				"buildid"		"4284037"
+				"description"		""
+				"timeupdated"		"1571024195"
+			}
+			"2.0.196.x"
+			{
+				"buildid"		"4326685"
+				"description"		""
+				"timeupdated"		"1572060674"
+			}
+			"2.0.197.x"
+			{
+				"buildid"		"4349932"
+				"description"		""
+				"timeupdated"		"1572664263"
+			}
+			"2.0.198.x"
+			{
+				"buildid"		"4373665"
+				"description"		""
+				"timeupdated"		"1573343533"
+			}
+			"2.0.199.x"
+			{
+				"buildid"		"4396082"
+				"description"		""
+				"timeupdated"		"1573883298"
+			}
+			"alpha"
+			{
+				"buildid"		"4018414"
+				"description"		""
+				"pwdrequired"		"1"
+				"timeupdated"		"1563344681"
+			}
+			"beta"
+			{
+				"buildid"		"4396082"
+				"description"		""
+				"timeupdated"		"1573883319"
+			}
+			"internal"
+			{
+				"buildid"		"4414567"
+				"description"		""
+				"pwdrequired"		"1"
+				"timeupdated"		"1574380380"
+			}
+			"legacy-opengl2"
+			{
+				"buildid"		"974753"
+				"description"		""
+				"timeupdated"		"1469069872"
+			}
+			"previousstable"
+			{
+				"buildid"		"4373665"
+				"description"		""
+				"timeupdated"		"1573883308"
+			}
+		}
+	}
+	"ufs"
+	{
+		"quota"		"1000000000"
+		"maxnumfiles"		"1000"
+	}
+}
+ 
