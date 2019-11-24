@@ -1,0 +1,3 @@
+- [ ] acf reader (it's almost like json)
+- [ ] `CMsgClientPICSProductInfoRequest` to get manifest sha
+- [ ] streaming zip decompressor for 1 file zipfiles with known structure
