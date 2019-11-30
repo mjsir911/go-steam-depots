@@ -10,28 +10,28 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-type DepotChunk struct {
+type Chunk struct {
 	ContentManifestPayload_FileMapping_ChunkData
 }
-func (c DepotChunk) Read(b []byte) (n int, err error) {
+func (c Chunk) Read(b []byte) (n int, err error) {
 	// download
 	// decrypt
 	// decompress
 	return
 }
-func (c DepotChunk) Name() string {
+func (c Chunk) Name() string {
 	return hex.EncodeToString(c.GetSha())
 }
-func (c DepotChunk) Size() int64 {
+func (c Chunk) Size() int64 {
 	return int64(c.GetCbOriginal())
 }
 
 
-type DepotFile struct {
+type File struct {
 	ContentManifestPayload_FileMapping
-	Chunks []DepotChunk
+	Chunks []Chunk
 }
-func (f DepotFile) Read(b []byte) (n int, err error) {
+func (f File) Read(b []byte) (n int, err error) {
 	n = 0
 	for _, chunk := range f.Chunks {
 		var m int
@@ -45,31 +45,31 @@ func (f DepotFile) Read(b []byte) (n int, err error) {
 }
 
 
-func (f DepotFile) Name() string {
+func (f File) Name() string {
 	return f.GetFilename()
 }
 
-func (f DepotFile) Size() int64 {
+func (f File) Size() int64 {
 	return int64(f.GetSize())
 }
 
-/* A depot is sort of like a directory */
-type Depot struct {
+/* A manifest is sort of like a directory */
+type Manifest struct {
 	ContentManifestPayload
 	ContentManifestMetadata
 	ContentManifestSignature
-	Files []DepotFile
+	Files []File
 }
-func (i Depot) Name() string {
+func (i Manifest) Name() string {
 	return strconv.FormatUint(i.GetGidManifest(), 10)
 }
-func (i Depot) Size() int64 {
+func (i Manifest) Size() int64 {
 	return int64(i.GetCbDiskOriginal())
 }
-func (i Depot) ModTime() time.Time {
+func (i Manifest) ModTime() time.Time {
 	return time.Unix(int64(i.GetCreationTime()), 0)
 }
-func NewDepot(r io.Reader) (d Depot, err error) {
+func NewManifest(r io.Reader) (d Manifest, err error) {
 	for {
 		var typ, len uint32
 		if err = binary.Read(r, binary.LittleEndian, &typ); err != nil {
@@ -82,6 +82,8 @@ func NewDepot(r io.Reader) (d Depot, err error) {
 		if _, err = io.ReadFull(r, buf); err != nil {
 			break
 		}
+		fmt.Println(len);
+		fmt.Println(buf);
 		switch typ {
 		case 0x71F617D0:
 			if err = proto.Unmarshal(buf, &d.ContentManifestPayload); err != nil {
@@ -102,7 +104,7 @@ func NewDepot(r io.Reader) (d Depot, err error) {
 	if err != nil && err != io.EOF {
 		return
 	}
-	d.Files = make([]DepotFile, len(d.GetMappings()))
+	d.Files = make([]File, len(d.GetMappings()))
 	for i, file := range d.GetMappings() {
 		d.Files[i].ContentManifestPayload_FileMapping = *file
 
