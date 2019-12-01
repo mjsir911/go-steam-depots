@@ -7,6 +7,7 @@ import (
 	"time"
 	"io"
 	"github.com/golang/protobuf/proto"
+	"github.com/Philipp15b/go-steam/protocol/protobuf"
 	"net/url"
 	"net/http"
 	"github.com/mjsir911/szip"
@@ -14,7 +15,7 @@ import (
 )
 
 type Chunk struct {
-	ContentManifestPayload_FileMapping_ChunkData
+	protobuf.ContentManifestPayload_FileMapping_ChunkData
 }
 func (c Chunk) Read(b []byte) (n int, err error) {
 	// download
@@ -36,7 +37,7 @@ func (c Chunk) URL(depot url.URL) url.URL {
 
 
 type File struct {
-	ContentManifestPayload_FileMapping
+	protobuf.ContentManifestPayload_FileMapping
 	Chunks []Chunk
 }
 func (f File) Read(b []byte) (n int, err error) {
@@ -60,7 +61,7 @@ func (f File) Name() string {
 func (f File) Size() int64 {
 	return int64(f.GetSize())
 }
-func NewFile(pb ContentManifestPayload_FileMapping) (f File) {
+func NewFile(pb protobuf.ContentManifestPayload_FileMapping) (f File) {
 	f.ContentManifestPayload_FileMapping = pb
 	f.Chunks = make([]Chunk, len(pb.GetChunks()))
 	for i, chunk := range pb.GetChunks() {
@@ -71,9 +72,9 @@ func NewFile(pb ContentManifestPayload_FileMapping) (f File) {
 
 /* A manifest is sort of like a directory */
 type Manifest struct {
-	ContentManifestPayload
-	ContentManifestMetadata
-	ContentManifestSignature
+	protobuf.ContentManifestPayload
+	protobuf.ContentManifestMetadata
+	protobuf.ContentManifestSignature
 	Files []File
 }
 func (i Manifest) Name() string {
