@@ -39,3 +39,9 @@ func (d Depot) URL() url.URL {
 func (d Depot) GetManifest(id string) (Manifest, error) {
 	return DownloadManifest(ManifestUrl(d.URL(), id))
 }
+
+func (d Depot) GetOSList() map[OS]struct{} {
+	config, _ := d.kv.GetChild("config")
+	oslist_kv, _ := config.GetChild("oslist")
+	return fillOSList(oslist_kv.Value)
+}
