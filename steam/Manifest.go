@@ -155,3 +155,8 @@ func ManifestUrl(depot url.URL, id string) url.URL {
 	depot.Path += "/manifest/" + id + "/5"
 	return depot
 }
+
+func (cm Manifest) URL(depot url.URL) url.URL {
+	// http://cache20-iad1.steamcontent.com/depot/1113281/manifest/8153978177929726511/5
+	return ManifestUrl(depot, cm.Name())
+}
