@@ -28,6 +28,11 @@ func (c Chunk) Name() string {
 func (c Chunk) Size() int64 {
 	return int64(c.GetCbOriginal())
 }
+func (c Chunk) URL(depot url.URL) url.URL {
+	// http://cache26-iad1.steamcontent.com/depot/333643/chunk/afca199c812171f7a6966e1b84156dadc85d0dcd
+	depot.Path += "/chunk/" + c.Name()
+	return depot
+}
 
 
 type File struct {
@@ -54,6 +59,14 @@ func (f File) Name() string {
 
 func (f File) Size() int64 {
 	return int64(f.GetSize())
+}
+func NewFile(pb ContentManifestPayload_FileMapping) (f File) {
+	f.ContentManifestPayload_FileMapping = pb
+	f.Chunks = make([]Chunk, len(pb.GetChunks()))
+	for i, chunk := range pb.GetChunks() {
+		f.Chunks[i].ContentManifestPayload_FileMapping_ChunkData = *chunk
+	}
+	return
 }
 
 /* A manifest is sort of like a directory */
@@ -109,15 +122,7 @@ func NewManifest(r io.Reader) (d Manifest, err error) {
 	}
 	d.Files = make([]File, len(d.GetMappings()))
 	for i, file := range d.GetMappings() {
-		d.Files[i].ContentManifestPayload_FileMapping = *file
-
-		// if len(file.Chunks) > 1 {
-			// fmt.Println(file)
-			// for _, chunk := range file.Chunks {
-				//fmt.Println(chunk)
-		// 		fmt.Println(hex.EncodeToString(chunk.GetSha()))
-		// 	}
-		 // }
+		d.Files[i] = NewFile(*file)
 	}
 	//fmt.Println(signature)
 	return
