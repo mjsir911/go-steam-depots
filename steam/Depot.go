@@ -45,3 +45,6 @@ func (d Depot) GetOSList() map[OS]struct{} {
 	oslist_kv, _ := config.GetChild("oslist")
 	return fillOSList(oslist_kv.Value)
 }
+func (d Depot) GetManifestByLabel(label string) (Manifest, error) {
+	return d.GetManifest(d.GetManifestMap()[label])
+}
