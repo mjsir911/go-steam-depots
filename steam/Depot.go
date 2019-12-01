@@ -6,33 +6,25 @@ import (
 	"strconv"
 )
 
-type Depot struct {
-	ID string
-	MaxSize int
-	Manifests map[string]string
-}
-
-// func NewDepot(id string) (d Depot, err error) {
-// 	return
-// }
-
 // for now use keyvalues, eventually want to use something more
 // encoding/json-like, with type assertions & all
-func NewDepot(kv vdf.KeyValue) (d Depot, err error) {
-	d.ID = kv.Key
-	child, _ := kv.GetChild("MaxSize")
-	d.MaxSize, _ = strconv.Atoi(child.Value)
-	child, _ = kv.GetChild("manifests")
-	d.Manifests = child.GetChildrenAsMap()
-	return
+type Depot struct {
+	kv vdf.KeyValue
 }
 
 func (d Depot) Name() string {
-	return d.ID
+	return d.kv.Key
+}
+
+func (d Depot) GetManifestMap() map[string]string {
+	manifests_kv, _ := d.kv.GetChild("manifests")
+	return manifests_kv.GetChildrenAsMap()
 }
 
 func (d Depot) Size() int64 {
-	return int64(d.MaxSize)
+	size, _ := d.kv.GetChild("MaxSize")
+	size2, _ := strconv.Atoi(size.Value)
+	return int64(size2)
 }
 
 func (d Depot) URL() url.URL {
