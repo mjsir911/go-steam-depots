@@ -6,7 +6,6 @@ import (
 	"strconv"
 	"time"
 	"io"
-	"fmt"
 	"github.com/golang/protobuf/proto"
 	"net/url"
 	"net/http"
@@ -73,6 +72,7 @@ func (i Manifest) Size() int64 {
 func (i Manifest) ModTime() time.Time {
 	return time.Unix(int64(i.GetCreationTime()), 0)
 }
+
 func NewManifest(r io.Reader) (d Manifest, err error) {
 	for {
 		var typ, len uint32
@@ -86,8 +86,6 @@ func NewManifest(r io.Reader) (d Manifest, err error) {
 		if _, err = io.ReadFull(r, buf); err != nil {
 			break
 		}
-		fmt.Println(len);
-		fmt.Println(buf);
 		switch typ {
 		case 0x71F617D0:
 			if err = proto.Unmarshal(buf, &d.ContentManifestPayload); err != nil {
@@ -102,7 +100,8 @@ func NewManifest(r io.Reader) (d Manifest, err error) {
 				return
 			}
 		default:
-			fmt.Println("unknown type:", typ)
+			err = errors.New("unknown type: " + string(typ))
+			return
 		}
 	}
 	if err != nil && err != io.EOF {
@@ -114,11 +113,11 @@ func NewManifest(r io.Reader) (d Manifest, err error) {
 
 		// if len(file.Chunks) > 1 {
 			// fmt.Println(file)
-			for _, chunk := range file.Chunks {
-				fmt.Println(chunk)
+			// for _, chunk := range file.Chunks {
+				//fmt.Println(chunk)
 		// 		fmt.Println(hex.EncodeToString(chunk.GetSha()))
 		// 	}
-		 }
+		 // }
 	}
 	//fmt.Println(signature)
 	return
