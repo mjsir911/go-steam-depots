@@ -8,6 +8,10 @@ import (
 	"io"
 	"fmt"
 	"github.com/golang/protobuf/proto"
+	"net/url"
+	"net/http"
+	"github.com/mjsir911/szip"
+	"errors"
 )
 
 type Chunk struct {
@@ -118,4 +122,31 @@ func NewManifest(r io.Reader) (d Manifest, err error) {
 	}
 	//fmt.Println(signature)
 	return
+}
+
+func DownloadManifest(url url.URL) (d Manifest, err error) {
+	r, err := http.Get(url.String())
+	if err != nil {
+		return
+	}
+	unzipper, err := szip.NewReader(r.Body)
+	if err != nil {
+		return
+	}
+	_, err = unzipper.Next()
+	if err != nil {
+		return
+	}
+	d, err = NewManifest(unzipper)
+	if err != nil {
+		return
+	}
+
+	return
+}
+
+func ManifestUrl(depot url.URL, id string) url.URL {
+	// http://cache20-iad1.steamcontent.com/depot/1113281/manifest/8153978177929726511/5
+	depot.Path += "/manifest/" + id + "/5"
+	return depot
 }
